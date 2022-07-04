@@ -1,8 +1,10 @@
 import headerCreateTemplate from './js/header.js';
+import createNavigationTemplate from './js/navigation.js';
 import cards from './cards.js';
 
 const title = 'English for kids';
 headerCreateTemplate(title);
+createNavigationTemplate();
 
 const headerMenu = document.querySelector('.header-menu');
 const headerLine = document.querySelector('.header-menu-line');

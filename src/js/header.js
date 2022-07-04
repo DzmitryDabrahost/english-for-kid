@@ -1,28 +1,22 @@
+import elementConstructor from "./helpersFunction.js";
+
 const createHeaderTemplate = (mainName) => {
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('wrapper');
+  const wrapper = elementConstructor('div', 'wrapper');
   document.body.prepend(wrapper);
 
+  const header = elementConstructor('header', 'header');
 
-  const header = document.createElement('header');
-  header.classList.add('header');
+  const headerMenu = elementConstructor('div', 'header-menu');
 
-  const headerMenu = document.createElement('div');
-  headerMenu.classList.add('header-menu');
-
-  const headerMenuBurgerLine = document.createElement('span');
-  headerMenuBurgerLine.classList.add('header-menu-line');
+  const headerMenuBurgerLine = elementConstructor('span', 'header-menu-line');
   headerMenu.appendChild(headerMenuBurgerLine);
 
-  const headerTitle = document.createElement('h1');
-  headerTitle.classList.add('header-title');
+  const headerTitle = elementConstructor('h1', 'header-title');
   headerTitle.innerHTML = `<a href="#">${mainName}</a>`;
 
-  const headerToggle = document.createElement('div');
-  headerToggle.classList.add('header-toggle');
+  const headerToggle = elementConstructor('div', 'header-toggle');
 
-  const headerToggleSquare = document.createElement('span');
-  headerToggleSquare.classList.add('header-toggle-square');
+  const headerToggleSquare = elementConstructor('span', 'header-toggle-square');
   headerToggle.appendChild(headerToggleSquare);
 
   header.append(headerMenu, headerTitle, headerToggle);
