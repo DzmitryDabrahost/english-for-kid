@@ -1,0 +1,41 @@
+.toggle-red {
+    background: $color-checkbox-play;
+}
+
+.toggle-green {
+    background: $color-checkbox-train;
+}
+
+.red {
+    background: $color-card-play;
+}
+
+.green {
+    background: $color-card-train;
+}
+
+.card-play-button {
+    display: block;
+    width: 40%;
+    height: 80px;
+    margin: 10px auto;
+    background: $color-checkbox-play;
+    color: $color-default;
+    font-size: 30px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.card-play-button-active {
+    margin: 10px auto;
+    display: block;
+    width: 80px;
+    height: 80px;
+    font-size: 0;
+    background-image: url(../../src/images/repeat.svg), linear-gradient(40deg,#ffd86f,#fc6262);;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 32px 32px,cover;
+    background-position: 50%;
+    outline: none;
+}

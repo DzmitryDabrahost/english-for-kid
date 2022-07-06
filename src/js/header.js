@@ -1,4 +1,4 @@
-import elementConstructor from "./helpersFunction.js";
+import elementConstructor from './helpersFunction';
 
 const createHeaderTemplate = (mainName) => {
   const wrapper = elementConstructor('div', 'wrapper');
@@ -21,6 +21,6 @@ const createHeaderTemplate = (mainName) => {
 
   header.append(headerMenu, headerTitle, headerToggle);
   wrapper.appendChild(header);
-}
+};
 
 export default createHeaderTemplate;

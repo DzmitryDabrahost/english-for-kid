@@ -1,0 +1,53 @@
+.section-card {
+  margin: auto;
+  width: 100%;
+}
+
+.card {
+  margin: 0;
+  width: 300px;
+  height: 280px;
+  border: 1px solid $color-light;
+  margin: 10px;
+  position: relative;
+  box-sizing: border-box;
+  transition: all .6s ease;
+
+  &:hover {
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.8);
+    transform: scale(0.95, 0.95);
+    cursor: pointer;
+  }
+
+  &-contain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 50px;
+  }
+
+  &-category {
+    background: $color-card-train;
+
+    &-title {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 24px;
+    }
+
+    & img {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 7px solid $color-default;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}
