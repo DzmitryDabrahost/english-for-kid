@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import elementConstructor from './helpersFunction';
+import elementConstructor from './elementConstructorFunction';
 import cards from '../cards.js';
 
 const createNavigationTemplate = () => {

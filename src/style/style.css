@@ -16,11 +16,8 @@ body {
 
 .wrapper {
   width: 100%;
+  max-width: 1300px;
   margin: auto;
-}
-
-.none {
-  display: none;
 }
 
 .toggle-red {
@@ -44,6 +41,10 @@ body {
   padding: 0 100px;
   border-bottom: 1px solid grey;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+.header-wrapper {
+  width: 100%;
+  margin: auto;
 }
 .header-menu {
   width: 30px;
@@ -282,8 +283,8 @@ body {
 }
 .card-train-rotate img {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   bottom: 5px;
   right: 8px;
   z-index: 3;
@@ -294,6 +295,34 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.card-play-button {
+  display: block;
+  width: 40%;
+  height: 80px;
+  margin: 10px auto;
+  background: linear-gradient(40deg, #ffd86f, #fc6262);
+  color: #fff;
+  font-size: 30px;
+  outline: none;
+  border-radius: 10px;
+}
+.card-play-button-active {
+  margin: 10px auto;
+  display: block;
+  width: 80px;
+  height: 80px;
+  font-size: 0;
+  background-image: url(../../cards/images/rotate.png), linear-gradient(40deg, #ffd86f, #fc6262);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 32px 32px, cover;
+  background-position: 50%;
+  outline: none;
+}
+
+.none {
+  display: none;
 }
 
 .toggle-red {
@@ -310,32 +339,6 @@ body {
 
 .green {
   background: linear-gradient(180deg, #0099ae, #00bf82 40%, #fff 0, #fff);
-}
-
-.card-play-button {
-  display: block;
-  width: 40%;
-  height: 80px;
-  margin: 10px auto;
-  background: linear-gradient(40deg, #ffd86f, #fc6262);
-  color: #fff;
-  font-size: 30px;
-  outline: none;
-  border-radius: 10px;
-}
-
-.card-play-button-active {
-  margin: 10px auto;
-  display: block;
-  width: 80px;
-  height: 80px;
-  font-size: 0;
-  background-image: url(../../src/images/repeat.svg), linear-gradient(40deg, #ffd86f, #fc6262);
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-size: 32px 32px, cover;
-  background-position: 50%;
-  outline: none;
 }
 
 /*# sourceMappingURL=style.css.map */

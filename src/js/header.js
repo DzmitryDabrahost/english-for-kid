@@ -1,8 +1,8 @@
-import elementConstructor from './helpersFunction';
+import elementConstructor from './elementConstructorFunction';
 
 const createHeaderTemplate = (mainName) => {
-  const wrapper = elementConstructor('div', 'wrapper');
-  document.body.prepend(wrapper);
+  const headerWrapper = elementConstructor('div', 'header-wrapper');
+  document.body.prepend(headerWrapper);
 
   const header = elementConstructor('header', 'header');
 
@@ -20,7 +20,7 @@ const createHeaderTemplate = (mainName) => {
   headerToggle.appendChild(headerToggleSquare);
 
   header.append(headerMenu, headerTitle, headerToggle);
-  wrapper.appendChild(header);
+  headerWrapper.appendChild(header);
 };
 
 export default createHeaderTemplate;
