@@ -132,6 +132,15 @@
         }
       }
 
+    &-message {
+      width: 170px;
+      padding: 5px 10px;
+      background-color: $color-default;
+      color: red;
+      position: absolute;
+      opacity: 0;
+    }
+
     &-active {
       background: $color-checkbox-play;
     

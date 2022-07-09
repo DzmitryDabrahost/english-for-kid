@@ -1,10 +1,12 @@
-/* eslint-disable no-return-assign */
 import headerCreateTemplate from './js/header';
 import createNavigationTemplate from './js/navigation';
 import createCardCategory from './js/card/cardBlock';
-import createCardForTrain from './js/card/cardForTrain';
+import createCardsToChoises from './js/card/createCards';
+import createStartPositionCards from './js/card/cardStartPosition';
+import changeNavigationLinks from './js/navigationLinksWatcher';
 
 const title = 'English for kids';
+let gameMode = false;
 headerCreateTemplate(title);
 createNavigationTemplate();
 createCardCategory();
@@ -14,19 +16,16 @@ const headerLine = document.querySelector('.header-menu-line');
 const checkboxToggle = document.querySelector('.header-toggle');
 const checkboxSquare = document.querySelector('.header-toggle-square');
 const navigation = document.querySelector('.navigation');
-const allCards = document.querySelectorAll('.card');
 const cardContainer = document.querySelector('.card-contain');
-
-allCards.forEach((item) => {
-  item.addEventListener('click', () => {
-    const collect = createCardForTrain(item.dataset.id);
-    cardContainer.innerHTML = '';
-    collect.forEach((element) => cardContainer.innerHTML += element);
-  });
-});
+const navigationLinks = document.querySelectorAll('.navigation-link');
 
 document.addEventListener('click', (event) => {
   const { target } = event;
+  if (target.classList.contains('first')) {
+    gameMode = true;
+    changeNavigationLinks(navigationLinks, target.dataset.id);
+    createCardsToChoises(cardContainer, target.dataset.id);
+  }
 
   if (!target.classList.contains('header-menu')) {
     headerMenu.classList.remove('header-menu-active');
@@ -34,8 +33,33 @@ document.addEventListener('click', (event) => {
   }
 
   if (target.classList.contains('navigation-link')) {
-    console.log(target.dataset.id);
+    changeNavigationLinks(navigationLinks, target.dataset.id);
+
+    if (target.dataset.id === 'main') {
+      gameMode = false;
+      createStartPositionCards();
+    } else if (target.dataset.id === 'statistic') {
+      gameMode = false;
+    } else {
+      gameMode = true;
+      createCardsToChoises(cardContainer, target.dataset.id);
+    }
   }
+
+  if (target.classList.contains('front')) {
+    const audio = new Audio();
+    audio.src = target.dataset.play;
+    audio.play();
+  }
+
+  if (target.classList.contains('card-rotate')) {
+    const block = target.closest('div.card-train-container');
+    block.classList.add('rotate');
+    block.addEventListener('mouseleave', () => {
+      block.classList.remove('rotate');
+    });
+  }
+
   switch (target) {
     case headerMenu:
     case headerLine:
@@ -44,7 +68,14 @@ document.addEventListener('click', (event) => {
       break;
     case checkboxToggle:
     case checkboxSquare:
-      checkboxToggle.classList.toggle('header-toggle-active');
+      if (gameMode) {
+        checkboxToggle.classList.toggle('header-toggle-active');
+      } else {
+        document.querySelector('.header-toggle-message').classList.add('visible');
+        setTimeout(() => {
+          document.querySelector('.header-toggle-message').classList.remove('visible');
+        }, 4000);
+      }
       break;
     default:
   }

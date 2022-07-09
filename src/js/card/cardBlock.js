@@ -9,7 +9,6 @@ const createCardCategory = () => {
   sectionCard.appendChild(wrapper);
   document.body.append(sectionCard);
   wrapper.appendChild(cardBlock);
-
   createStartPositionCards(cardBlock);
 
   wrapper.innerHTML += startGameButton;

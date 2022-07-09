@@ -9,7 +9,7 @@ const createNavigationTemplate = () => {
     navigationWrapper.insertAdjacentHTML('beforeend', navigationElement);
   }
 
-  const mainPagesLink = `<a href="#" class="navigation-link" data-id="main">main page</a>`;
+  const mainPagesLink = `<a href="#" class="navigation-link navigation-link-active" data-id="main">main page</a>`;
   const statistic = `<a href="#" class="navigation-link" data-id="statistic">statistic</a>`;
 
   navigationWrapper.insertAdjacentHTML('afterbegin', mainPagesLink);
