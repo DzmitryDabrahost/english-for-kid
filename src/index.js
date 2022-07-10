@@ -4,9 +4,12 @@ import createCardCategory from './js/card/cardBlock';
 import createCardsToChoises from './js/card/createCards';
 import createStartPositionCards from './js/card/cardStartPosition';
 import changeNavigationLinks from './js/navigationLinksWatcher';
+import getAllCardSounds from './js/game/startGame';
 
 const title = 'English for kids';
 let gameMode = false;
+let index;
+
 headerCreateTemplate(title);
 createNavigationTemplate();
 createCardCategory();
@@ -18,13 +21,19 @@ const checkboxSquare = document.querySelector('.header-toggle-square');
 const navigation = document.querySelector('.navigation');
 const cardContainer = document.querySelector('.card-contain');
 const navigationLinks = document.querySelectorAll('.navigation-link');
+const button = document.querySelector('.card-play-button');
 
 document.addEventListener('click', (event) => {
   const { target } = event;
+
+  if (target.dataset.id) {
+    index = target.dataset.id;
+  }
+
   if (target.classList.contains('first')) {
     gameMode = true;
-    changeNavigationLinks(navigationLinks, target.dataset.id);
-    createCardsToChoises(cardContainer, target.dataset.id);
+    changeNavigationLinks(navigationLinks, index);
+    createCardsToChoises(cardContainer, index, false);
   }
 
   if (!target.classList.contains('header-menu')) {
@@ -33,7 +42,7 @@ document.addEventListener('click', (event) => {
   }
 
   if (target.classList.contains('navigation-link')) {
-    changeNavigationLinks(navigationLinks, target.dataset.id);
+    changeNavigationLinks(navigationLinks, index);
 
     if (target.dataset.id === 'main') {
       gameMode = false;
@@ -42,7 +51,7 @@ document.addEventListener('click', (event) => {
       gameMode = false;
     } else {
       gameMode = true;
-      createCardsToChoises(cardContainer, target.dataset.id);
+      createCardsToChoises(cardContainer, index);
     }
   }
 
@@ -60,6 +69,12 @@ document.addEventListener('click', (event) => {
     });
   }
 
+  if (target.classList.contains('card-play-button')
+   && !target.classList.contains('card-play-button-active')) {
+    target.classList.add('card-play-button-active');
+    getAllCardSounds(document.querySelectorAll('.card'));
+  }
+
   switch (target) {
     case headerMenu:
     case headerLine:
@@ -68,8 +83,17 @@ document.addEventListener('click', (event) => {
       break;
     case checkboxToggle:
     case checkboxSquare:
+      if (button.classList.contains('card-play-button-active')) {
+        button.classList.remove('card-play-button-active');
+      }
       if (gameMode) {
         checkboxToggle.classList.toggle('header-toggle-active');
+        navigation.classList.toggle('toggle-red');
+        if (checkboxToggle.classList.contains('header-toggle-active')) {
+          createCardsToChoises(cardContainer, index, true);
+        } else {
+          createCardsToChoises(cardContainer, index, false);
+        }
       } else {
         document.querySelector('.header-toggle-message').classList.add('visible');
         setTimeout(() => {

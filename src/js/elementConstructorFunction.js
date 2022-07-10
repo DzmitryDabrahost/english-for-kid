@@ -6,7 +6,7 @@ const elementConstructor = (element, className, ...dataAttribute) => {
       if (attrValue === '') {
         elem.setAttribute(attrName, '');
       }
-      if (attrName.match(/value|id|placeholder|cols|rows|autocorrect|spellcheck/)) {
+      if (attrName.match(/value|id|placeholder|cols|rows|autocorrect|spellcheck|src/)) {
         elem.setAttribute(attrName, attrValue);
       } else {
         elem.dataset[attrName] = attrValue;

@@ -19,7 +19,29 @@
 }
 
 @keyframes mymove {
-  0% {opacity: 0;}
-  50% {opacity: 1;}
-  100% {opacity: 0;}
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.invisibility {
+    opacity: .2;
+}
+
+.finish-message {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    font-size: 52px;
+    z-index: 10;
+    text-align: center;
+    color: $color-default;
+}
+
+@media screen and (max-width: 900px) {
+    .finish-message {
+        font-size: 32px;
+    }
 }
