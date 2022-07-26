@@ -5,10 +5,17 @@ import createCardsToChoises from './js/card/createCards';
 import createStartPositionCards from './js/card/cardStartPosition';
 import changeNavigationLinks from './js/navigationLinksWatcher';
 import getAllCardSounds from './js/game/startGame';
+import createStatisticTemplate from './js/statistic/statistic';
+import cards from './cards';
+import changeStat from './js/statistic/changeStat';
 
 const title = 'English for kids';
 let gameMode = false;
 let index;
+
+if (!localStorage.getItem('cards')) {
+  localStorage.setItem('cards', JSON.stringify(cards));
+}
 
 headerCreateTemplate(title);
 createNavigationTemplate();
@@ -49,6 +56,7 @@ document.addEventListener('click', (event) => {
       createStartPositionCards();
     } else if (target.dataset.id === 'statistic') {
       gameMode = false;
+      createStatisticTemplate();
     } else {
       gameMode = true;
       createCardsToChoises(cardContainer, index);
@@ -56,12 +64,14 @@ document.addEventListener('click', (event) => {
   }
 
   if (target.classList.contains('front')) {
+    changeStat(target.dataset.index, target.dataset.id, 'trained');
     const audio = new Audio();
     audio.src = target.dataset.play;
     audio.play();
   }
 
   if (target.classList.contains('card-rotate')) {
+    changeStat(target.dataset.index, target.dataset.id, 'trained');
     const block = target.closest('div.card-train-container');
     block.classList.add('rotate');
     block.addEventListener('mouseleave', () => {

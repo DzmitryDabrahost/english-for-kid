@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import elementConstructor from '../elementConstructorFunction';
+import changeStat from '../statistic/changeStat';
 
 const getAllCardSounds = (allCardSounds) => {
   const sounds = [];
@@ -38,7 +39,7 @@ const getAllCardSounds = (allCardSounds) => {
 
   const startNewGame = () => {
     setTimeout(() => {
-      localStorage.clear();
+      localStorage.removeItem('audio');
       location.reload();
     }, 4000);
   };
@@ -55,10 +56,12 @@ const getAllCardSounds = (allCardSounds) => {
       createAudio(sounds).play();
     } else {
       const mainBlock = document.querySelector('.section-card');
+      const imageWrapper = elementConstructor('div', 'image-wrapper');
       const img = createFinishScreen();
       const message = finishMessage();
       mainBlock.innerHTML = '';
-      mainBlock.append(img, message);
+      mainBlock.appendChild(imageWrapper);
+      imageWrapper.append(img, message);
       startNewGame();
     }
   };
@@ -93,6 +96,7 @@ const getAllCardSounds = (allCardSounds) => {
       const audioPath = localStorage.getItem('audio');
 
       if (audioPath.indexOf(target.dataset.play.slice(2)) > 0) {
+        changeStat(target.dataset.index, target.dataset.id, 'correct');
         target.classList.add('invisibility');
         starBlock.insertAdjacentElement('afterbegin', createStarElement());
         const correctAudio = new Audio();
@@ -100,6 +104,7 @@ const getAllCardSounds = (allCardSounds) => {
         correctAudio.play();
         removeUnnecessaryElement(audioPath);
       } else {
+        changeStat(target.dataset.index, target.dataset.id, 'incorrect');
         countErrors += 1;
         starBlock.insertAdjacentElement('afterbegin', createEmptyStarElement());
         const errorAudio = new Audio();

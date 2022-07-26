@@ -1,0 +1,76 @@
+.statistic-table {
+  width: 65%;
+  margin: 20px auto;
+  border: 1px solid $color-light;
+
+  &-title {
+    background: $color-checkbox-train;
+
+    &-head {
+      font-size: 32px;
+      transition: all .4s ease;
+      color: $color-font;
+
+      &:hover {
+        cursor: pointer;
+        color: $color-default;
+      }
+    }
+  }
+
+  &-row {
+    transition: all .2s ease;
+
+    &:hover {
+      background: $color-statistic;
+    }
+  }
+
+  &-ceil {
+
+    transition: all .2s ease;
+  
+    &:hover {
+      background: $color-statistic-ceil;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .statistic-table {
+    width: 80%;
+
+    &-title-head {
+      font-size: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .statistic-table {
+    width: 95%;
+
+    &-title-head {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .statistic-table {
+    width: 95%;
+
+    &-title {
+      
+      &-head {
+        font-size: 12px;
+      }
+    }
+
+    &-row {
+      font-size: 12px;
+      line-height: 26px;
+    }
+  }
+}

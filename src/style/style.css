@@ -382,6 +382,65 @@ body {
   display: none;
 }
 
+.statistic-table {
+  width: 65%;
+  margin: 20px auto;
+  border: 1px solid grey;
+}
+.statistic-table-title {
+  background: linear-gradient(40deg, #00bf82, #0099ae);
+}
+.statistic-table-title-head {
+  font-size: 32px;
+  transition: all 0.4s ease;
+  color: blue;
+}
+.statistic-table-title-head:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.statistic-table-row {
+  transition: all 0.2s ease;
+}
+.statistic-table-row:hover {
+  background: #00bf82;
+}
+.statistic-table-ceil {
+  transition: all 0.2s ease;
+}
+.statistic-table-ceil:hover {
+  background: #ffd86f;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .statistic-table {
+    width: 80%;
+  }
+  .statistic-table-title-head {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .statistic-table {
+    width: 95%;
+  }
+  .statistic-table-title-head {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 540px) {
+  .statistic-table {
+    width: 95%;
+  }
+  .statistic-table-title-head {
+    font-size: 12px;
+  }
+  .statistic-table-row {
+    font-size: 12px;
+    line-height: 26px;
+  }
+}
 .toggle-red {
   background: linear-gradient(40deg, #ffd86f, #fc6262);
 }
@@ -400,6 +459,10 @@ body {
 
 .visible {
   animation: mymove 4s infinite;
+}
+
+.text-center {
+  text-align: center;
 }
 
 @keyframes mymove {
@@ -426,7 +489,18 @@ body {
   font-size: 52px;
   z-index: 10;
   text-align: center;
-  color: #fff;
+  color: blue;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-wrapper img {
+  max-width: 300px;
 }
 
 @media screen and (max-width: 900px) {
