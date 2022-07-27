@@ -1,0 +1,110 @@
+.statistic-table {
+  width: 65%;
+  margin: 20px auto;
+  border: 1px solid $color-light;
+
+  &-title {
+    background: $color-checkbox-train;
+
+    &-head {
+      font-size: 32px;
+      font-weight: 400;
+      transition: all .4s ease;
+      color: $color-font;
+
+      &:hover {
+        cursor: pointer;
+        color: $color-default;
+      }
+    }
+  }
+
+  &-row {
+    transition: all .2s ease;
+
+    &:hover {
+      background: $color-statistic;
+    }
+  }
+
+  &-ceil {
+
+    transition: all .2s ease;
+  
+    &:hover {
+      background: $color-statistic-ceil;
+      cursor: pointer;
+    }
+  }
+
+  &-button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  
+    &-reset,
+    &-train {
+      width: 130px;
+      padding: 5px 10px;
+      background: $color-train;
+      color: $color-default;
+      transition: all .2s ease;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: "disney-print", sans-serif;  
+
+      &:hover {
+        background: $color-default;
+        color: $color-train;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .statistic-table {
+    width: 80%;
+
+    &-title-head {
+      font-size: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .statistic-table {
+    width: 95%;
+
+    &-title-head {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .statistic-table {
+    width: 95%;
+
+    &-title {
+      
+      &-head {
+        font-size: 12px;
+      }
+    }
+
+    &-row {
+      font-size: 12px;
+      line-height: 26px;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .statistic-table {
+    width: 95%;
+    padding: 0 5px;
+  }
+}

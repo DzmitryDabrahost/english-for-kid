@@ -1,0 +1,186 @@
+.header {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  border-bottom: 1px solid $color-light;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+
+    &-wrapper {
+      width: 100%;
+      margin: auto;
+    }
+
+    &-menu {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    
+      &-line,
+      &:after,
+      &:before {
+      width: 100%;
+      height: 4px;
+      background-color: $color-font;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      margin-top: -2px;
+      transition: 0.5s;
+    }
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &:before {
+      content: '';
+      transform: translateY(10px);
+    }
+
+    &:after {
+      content: '';
+      transform: translateY(-10px);
+    }
+
+    &-active span {
+      display: none;
+    }
+
+    &-active:before {
+      transform: rotate(45deg);
+    }
+
+    &-active:after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &-title {
+    transition: all .5s ease;
+  
+    & a {
+      color: $color-font;
+      text-decoration: none;
+    }
+
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
+  }
+
+  &-toggle {
+    margin: 0;
+    min-width: 100px;
+    height: 30px;
+    position: relative;
+    border-radius: 14px;
+    background: $color-checkbox-train;
+    cursor: pointer;
+  
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 9%;
+      color: $color-default;
+      font-size: 20px;
+      transform: translate(0, -50%);
+      text-transform: uppercase;
+      transition: 0.5s;
+    }
+
+    &:after {
+      content: 'train';
+      position: absolute;
+      top: 50%;
+      left: 32%;
+      color: $color-default;
+      font-size: 20px;
+      transform: translate(0, -50%);
+      text-transform: uppercase;
+      transition: 0.5s;
+    }
+
+    &-square {
+      display: inline-block;
+      background-color: $color-default;
+      border-radius: 14px;
+      width: 28px;
+      height: 28px;
+      position: relative;
+      top: 1px;
+      left: 1px;
+      cursor: pointer;
+      transition: 0.5s;
+    
+        &:after {
+          content: '';
+          background-color: $color-light;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          margin-top: -5px;
+          margin-left: -5px;
+          cursor: pointer;
+        }
+      }
+
+    &-message {
+      width: 170px;
+      padding: 5px 10px;
+      background-color: $color-default;
+      color: red;
+      position: absolute;
+      opacity: 0;
+    }
+
+    &-active {
+      background: $color-checkbox-play;
+    
+      &:before {
+        content: 'play';
+      }
+
+      &:after {
+        content: '';
+      }
+
+      & span {
+        left: calc(100% - 29px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .header {
+    height: 120px;
+
+    &-menu {
+      position: absolute;
+      top: 60px;
+      left: 60px;
+    }
+
+    &-title {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 24px;
+    }
+
+    &-toggle {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+    }
+  }
+}

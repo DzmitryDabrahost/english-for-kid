@@ -1,0 +1,44 @@
+.card-play {
+    
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-button {
+    display: block;
+    width: 40%;
+    height: 80px;
+    margin: 10px auto;
+    background: $color-checkbox-play;
+    color: $color-default;
+    font-size: 30px;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &-active {
+      margin: 10px auto;
+      display: block;
+      width: 80px;
+      height: 80px;
+      font-size: 0;
+      background-image: url(../cards/images/rotate.png), linear-gradient(40deg,#ffd86f,#fc6262);;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-size: 32px 32px,cover;
+      background-position: 50%;
+      outline: none;
+      transition: all .1s ease;
+
+      &:hover {
+        background-size: 36px 36px, cover;
+      }
+    }
+  }
+}
+
+.none {
+  display: none;
+}
