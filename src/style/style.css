@@ -392,6 +392,7 @@ body {
 }
 .statistic-table-title-head {
   font-size: 32px;
+  font-weight: 400;
   transition: all 0.4s ease;
   color: blue;
 }
@@ -412,6 +413,28 @@ body {
   background: #ffd86f;
   cursor: pointer;
 }
+.statistic-table-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.statistic-table-button-reset, .statistic-table-button-train {
+  width: 130px;
+  padding: 5px 10px;
+  background: green;
+  color: #fff;
+  transition: all 0.2s ease;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "disney-print", sans-serif;
+}
+.statistic-table-button-reset:hover, .statistic-table-button-train:hover {
+  background: #fff;
+  color: green;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 1200px) {
   .statistic-table {
@@ -429,7 +452,7 @@ body {
     font-size: 20px;
   }
 }
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 640px) {
   .statistic-table {
     width: 95%;
   }
@@ -439,6 +462,12 @@ body {
   .statistic-table-row {
     font-size: 12px;
     line-height: 26px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .statistic-table {
+    width: 95%;
+    padding: 0 5px;
   }
 }
 .toggle-red {

@@ -8,6 +8,7 @@
 
     &-head {
       font-size: 32px;
+      font-weight: 400;
       transition: all .4s ease;
       color: $color-font;
 
@@ -35,6 +36,32 @@
       cursor: pointer;
     }
   }
+
+  &-button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  
+    &-reset,
+    &-train {
+      width: 130px;
+      padding: 5px 10px;
+      background: $color-train;
+      color: $color-default;
+      transition: all .2s ease;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: "disney-print", sans-serif;  
+
+      &:hover {
+        background: $color-default;
+        color: $color-train;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -57,7 +84,7 @@
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 640px) {
   .statistic-table {
     width: 95%;
 
@@ -72,5 +99,12 @@
       font-size: 12px;
       line-height: 26px;
     }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .statistic-table {
+    width: 95%;
+    padding: 0 5px;
   }
 }

@@ -6,6 +6,10 @@ const getAllCardSounds = (allCardSounds) => {
   const sounds = [];
   let countErrors = 0;
   const starBlock = document.querySelector('.card-stars');
+  const statisticButtons = document.querySelector('.statistic-table-button');
+  if (statisticButtons) {
+    statisticButtons.remove();
+  }
 
   const createArrayWithAllSounds = () => {
     allCardSounds.forEach((element) => {

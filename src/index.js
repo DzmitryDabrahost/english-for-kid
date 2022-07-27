@@ -50,6 +50,10 @@ document.addEventListener('click', (event) => {
 
   if (target.classList.contains('navigation-link')) {
     changeNavigationLinks(navigationLinks, index);
+    const statisticTableButton = document.querySelector('.statistic-table-button');
+    if (statisticTableButton) {
+      statisticTableButton.remove();
+    }
 
     if (target.dataset.id === 'main') {
       gameMode = false;
